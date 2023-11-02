@@ -1,0 +1,45 @@
+{
+  "name": "webdav-mount",
+  "productName": "挂载WebDAV",
+  "version": "1.1.4",
+  "description": "开机自动挂载WebDAV",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.webdav.huikeyun",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "menuCategory": true,
+      "warningsAsErrors": false,
+      "include": "build-resources/uninstaller.nsi",
+      "shortcutName": "挂载WebDAV"
+    }
+  },
+  "author": "慧科云",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^27.0.2",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6",
+    "conf": "^12.0.0",
+    "crypto-js": "^4.2.0",
+    "electron-store": "^8.1.0",
+    "path-is-absolute": "^2.0.0",
+    "webdav": "^5.3.0"
+  }
+}

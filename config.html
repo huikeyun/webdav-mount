@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form>
+    <label for="url">WebDAV URL:</label><br>
+    <input type="text" id="url" name="url"><br>
+    <label for="username">用户名:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">密码:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="button" value="提交" onclick="submit()">
+</form>
+<script>
+    const { ipcRenderer } = require('electron');
+
+    function submit() {
+        let url = document.getElementById('url').value;
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        ipcRenderer.send('config-message', {url: url, username: username, password: password});
+    }
+</script>
+</body>
+</html>
